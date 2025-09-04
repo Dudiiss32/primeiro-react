@@ -10,6 +10,7 @@ const TarefasForm = ({onAddTarefa}) => {
             setTarefa('')
         }
     }
+    
 
     return (
         <form onSubmit={handleSubmit}>
