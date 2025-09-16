@@ -3,30 +3,37 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/Home'
 import Sobre from './pages/Sobre'
 import './App.css'
+import './tema.css'
 import AppTarefas from './pages/tarefas/AppTarefas'
 import { ThemeProvider } from './contexts/ThemeContext'
+import ThemeToggleButton from './components/ThemeToggleButton'
+import Usuarios from './pages/Usuarios'
 
 function App() {
 
   return (
     <ThemeProvider>
         <BrowserRouter>
-          <div>
-            <nav>
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/sobre">Sobre</Link></li>
-                <li><Link to="/tarefas">Tarefas</Link></li>
-              </ul>
-            </nav>
-          </div>
+        <div className='claro'>
+          <nav>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/sobre">Sobre</Link></li>
+              <li><Link to="/tarefas">Tarefas</Link></li>
+              <li><Link to="/usuarios">Usuários</Link></li>
+            </ul>
+
+            <ThemeToggleButton></ThemeToggleButton>
+          </nav>
+        </div>
 
         {/* Define as rotas */}
-        <div>
+        <div >
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/sobre' element={<Sobre/>}/>
             <Route path='/tarefas' element={<AppTarefas/>}/>
+            <Route path='/usuarios' element={<Usuarios/>}/>
           </Routes>
         </div>
         </BrowserRouter>
